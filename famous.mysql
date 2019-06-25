@@ -65,9 +65,14 @@ SELECT a.celebName AS "co-star", b.celebName AS "co-star"
 SELECT a.celebName AS "gamer buddy", b.celebName AS "gamer buddy"
     FROM celebrity a
     JOIN celebrity b
-    WHERE a.celebName <> b.celebName
-    AND a.popularGame = b.popularGame
+    ON a.popularGame = b.popularGame
     ;
 
-
+SELECT a.celebName AS "co-star", b.celebName AS "co-star", screen_role.movie
+    FROM screen_role
+    JOIN celebrity a
+    ON screen_role.id = a.screenRole
+    JOIN celebrity b
+    ON a.screenRole = b.screenRole
+    ;
 
