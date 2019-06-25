@@ -1,0 +1,73 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE celebrity(
+    id INTEGER PRIMARY KEY,
+    celebName TEXT,
+    screenRole INTEGER,
+    popularGame INTEGER);
+
+INSERT INTO celebrity (celebName, screenRole, popularGame)
+    VALUES("Felicia Day", 1, 1);
+INSERT INTO celebrity (celebName, screenRole, popularGame)
+    VALUES("Seth Rogan", 3, 2);
+INSERT INTO celebrity (celebName, screenRole, popularGame)
+    VALUES("Ronda Rousey", 2, 1);
+INSERT INTO celebrity (celebName, screenRole, popularGame)
+    VALUES("Vin Diesel", 2, 1);
+INSERT INTO celebrity (celebName, screenRole, popularGame)
+    VALUES("Nathan Fillion", 1, 2);
+INSERT INTO celebrity (celebName, screenRole, popularGame)
+    VALUES("Joseph Gordon-Levitt", 3, 2);
+
+CREATE TABLE screen_role(
+    id INTEGER PRIMARY KEY,
+    movie TEXT);
+
+INSERT INTO screen_role(movie)
+    VALUES("Dr Horrible's Sing-a-long Blog");
+INSERT INTO screen_role(movie)
+    VALUES("Furious 7");
+INSERT INTO screen_role(movie)
+    VALUES("50/50");
+
+    
+CREATE TABLE popular_game(
+    id INTEGER PRIMARY KEY,
+    game TEXT
+    );
+
+INSERT INTO popular_game(game)
+    VALUES("World of Warcraft");
+INSERT INTO popular_game(game)
+    VALUES("Magic the Gathering");
+
+SELECT * FROM celebrity;
+SELECT * FROM screen_role;
+SELECT * FROM popular_game;
+
+SELECT celebrity.celebName, screen_role.movie
+    FROM celebrity
+    JOIN screen_role
+    ON screen_role.id = celebrity.screenRole;
+
+SELECT celebrity.celebName, popular_game.game
+    FROM celebrity
+    JOIN popular_game
+    ON popular_game.id = celebrity.popularGame;
+    
+SELECT a.celebName AS "co-star", b.celebName AS "co-star"
+    FROM celebrity a
+    JOIN celebrity b
+    WHERE a.celebName <> b.celebName
+    AND a.screenRole = b.screenRole
+    ;
+
+SELECT a.celebName AS "gamer buddy", b.celebName AS "gamer buddy"
+    FROM celebrity a
+    JOIN celebrity b
+    WHERE a.celebName <> b.celebName
+    AND a.popularGame = b.popularGame
+    ;
+
+
+
