@@ -13,3 +13,5 @@ Movie stars: What movies are they in? Are they married to each other?
 Singers: What songs did they write? Where are they from?
 Authors: What books did they write?
 Fictional characters: How are they related to other characters? What books do they show up in?
+
+More functionality to come.
